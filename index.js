@@ -1,7 +1,10 @@
 console.log('Loaded index.js');
 
+// Default value
+let selectedTimeframe = 'weekly';
+
 // 1. Read json
-async function getData() {
+async function fetchData() {
   try {
     // Fetch local file
     const response = await fetch('./data.json');
@@ -11,6 +14,7 @@ async function getData() {
 
     // Parse JSON data
     const data = await response.json();
+    testData = data;
 
     // Use data
     console.log('Success! Here is your data: ', data);
@@ -19,8 +23,9 @@ async function getData() {
   }
 }
 
-getData();
+fetchData();
 
+function updateData() {}
 // 2. Take input, (daily weekly monthly) three choices
 // 3. Get back current and previous values depending on choice
 // 4. Update DOM with values

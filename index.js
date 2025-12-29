@@ -3,7 +3,9 @@ console.log('Loaded index.js');
 // Default value
 let selectedTimeframe = 'weekly';
 
-// 1. Read json
+// Cached JSON data
+let cache;
+
 async function fetchData() {
   try {
     // Fetch local file
@@ -14,18 +16,40 @@ async function fetchData() {
 
     // Parse JSON data
     const data = await response.json();
-    testData = data;
 
     // Use data
+    cache = data;
     console.log('Success! Here is your data: ', data);
   } catch (error) {
     console.error('Error loading JSON: ', error);
   }
 }
-
 fetchData();
 
-function updateData() {}
-// 2. Take input, (daily weekly monthly) three choices
-// 3. Get back current and previous values depending on choice
-// 4. Update DOM with values
+function updateData(timeframe) {
+  // Update 'current' hrs
+
+  // Wording changes for different periods on 'prev'
+  if (timeframe === 'daily') {
+    cache.forEach((element) => {
+      console.log(element.timeframes.daily.current);
+    });
+    // Yesterday - Xhrs
+  } else if (timeframe === 'weekly') {
+    // Last Week - Xhrs
+  } else if (timeframe == 'monthly') {
+    // Last Month - Xhrs
+  } else {
+    // Error
+    console.log('Error: timeframe not recognized');
+  }
+}
+
+// Button onclick function
+
+// function testFunc() {
+//   const list = document.querySelectorAll('.category-card__time');
+//   const listArray = Array.from(list).map((item) => item.textContent);
+
+//   console.log(listArray);
+// }

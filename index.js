@@ -27,13 +27,20 @@ async function fetchData() {
 fetchData();
 
 function updateData(timeframe) {
+  // Get current array
+  // Grab the array of data.timeframes.daily.current
+  const currentHrs = document.querySelectorAll('.category-card__curr');
+  const prevHrs = document.querySelectorAll('.category-card__prev');
+
   // Update 'current' hrs
 
   // Wording changes for different periods on 'prev'
   if (timeframe === 'daily') {
-    cache.forEach((element) => {
-      console.log(element.timeframes.daily.current);
-    });
+    currentHrs[0].innerText = cache[0].timeframes.daily.current;
+    prevHrs[0].innerText = `Yesterday - ${cache[0].timeframes.daily.previous}hrs`;
+    // cache.forEach((element) => {
+    //   console.log(element.timeframes.daily.current);
+    // });
     // Yesterday - Xhrs
   } else if (timeframe === 'weekly') {
     // Last Week - Xhrs

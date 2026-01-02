@@ -18,16 +18,25 @@ async function fetchData() {
 }
 fetchData();
 
+const buttons = document.querySelectorAll('.timeframe__btn');
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const timeframe = button.textContent.toLowerCase();
+    updateData(timeframe);
+
+    // Do something to styling (e.g: highlight, bold, etc) [Can be done after styling]
+  });
+});
+
 function writeText(input, prevTerm) {
-  // Get current array
   const currentHrs = document.querySelectorAll('.category-card__curr');
   const prevHrs = document.querySelectorAll('.category-card__prev');
 
   cache.forEach((item, idx) => {
     const timeData = item.timeframes[input];
 
-    currentHrs[idx].innerText = `${timeData.current}hrs`;
-    prevHrs[idx].innerText = `${prevTerm} - ${timeData.previous}hrs`;
+    currentHrs[idx].textContent = `${timeData.current}hrs`;
+    prevHrs[idx].textContent = `${prevTerm} - ${timeData.previous}hrs`;
   });
 }
 
@@ -43,5 +52,4 @@ function updateData(timeframe) {
   }
 }
 
-// Button onclick function
-// Do something to styling (e.g: highlight, bold, etc)
+// Want to improve functions

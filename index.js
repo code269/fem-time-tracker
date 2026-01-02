@@ -1,5 +1,3 @@
-console.log('Loaded index.js');
-
 // Default value
 let selectedTimeframe = 'weekly';
 
@@ -8,16 +6,10 @@ let cache;
 
 async function fetchData() {
   try {
-    // Fetch local file
     const response = await fetch('./data.json');
-
-    // See if file exists or if possible to load correctly
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-    // Parse JSON data
     const data = await response.json();
 
-    // Use data
     cache = data;
     console.log('Success! Here is your data: ', data);
   } catch (error) {
@@ -26,37 +18,30 @@ async function fetchData() {
 }
 fetchData();
 
-function updateData(timeframe) {
+function writeText(input, prevTerm) {
   // Get current array
-  // Grab the array of data.timeframes.daily.current
   const currentHrs = document.querySelectorAll('.category-card__curr');
   const prevHrs = document.querySelectorAll('.category-card__prev');
 
-  // Update 'current' hrs
+  cache.forEach((item, idx) => {
+    const timeData = item.timeframes[input];
 
-  // Wording changes for different periods on 'prev'
-  if (timeframe === 'daily') {
-    currentHrs[0].innerText = cache[0].timeframes.daily.current;
-    prevHrs[0].innerText = `Yesterday - ${cache[0].timeframes.daily.previous}hrs`;
-    // cache.forEach((element) => {
-    //   console.log(element.timeframes.daily.current);
-    // });
-    // Yesterday - Xhrs
-  } else if (timeframe === 'weekly') {
-    // Last Week - Xhrs
-  } else if (timeframe == 'monthly') {
-    // Last Month - Xhrs
-  } else {
-    // Error
-    console.log('Error: timeframe not recognized');
+    currentHrs[idx].innerText = `${timeData.current}hrs`;
+    prevHrs[idx].innerText = `${prevTerm} - ${timeData.previous}hrs`;
+  });
+}
+
+function updateData(timeframe) {
+  if (timeframe !== selectedTimeframe) {
+    selectedTimeframe = timeframe;
+    console.log('Updating data...');
+
+    if (timeframe === 'daily') writeText('daily', 'Yesterday');
+    else if (timeframe === 'weekly') writeText('weekly', 'Last Week');
+    else if (timeframe == 'monthly') writeText('monthly', 'Last Month');
+    else console.log('Error: timeframe not recognized');
   }
 }
 
 // Button onclick function
-
-// function testFunc() {
-//   const list = document.querySelectorAll('.category-card__time');
-//   const listArray = Array.from(list).map((item) => item.textContent);
-
-//   console.log(listArray);
-// }
+// Do something to styling (e.g: highlight, bold, etc)

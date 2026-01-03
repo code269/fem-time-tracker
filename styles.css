@@ -1,7 +1,66 @@
-.test {
-  color: red;
+/* CSS reset start */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Avoid text overflow issues */
+/* p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+} */
+/* CSS reset end */
+
+/* 
+### Body Copy
+- Font size: 18px (card titles e.g. Work, Play)
+
+### Font
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 300, 400, 500 
+*/
+
+:root {
+  /* Primary colors */
+  --clr-purple-600: hsl(246, 80%, 60%);
+  --clr-work: hsl(15, 100%, 70%);
+  --clr-play: hsl(195, 74%, 62%);
+  --clr-study: hsl(348, 100%, 68%);
+  --clr-exercise: hsl(145, 58%, 55%);
+  --clr-social: hsl(264, 64%, 52%);
+  --clr-selfcare: hsl(43, 84%, 65%);
+
+  /* Neutral colors */
+  --clr-navy-950: hsl(226, 43%, 10%);
+  --clr-navy-900: hsl(235, 46%, 20%);
+  --clr-purple-500: hsl(235, 45%, 61%);
+  --clr-navy-200: hsl(236, 100%, 87%);
+
+  /* Typography */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-bold: 500;
+}
+
+body {
+  font-size: 18px;
+}
+
+/* Footer */
 .attribution {
   font-size: 11px;
   text-align: center;

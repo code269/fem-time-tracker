@@ -18,21 +18,7 @@ img {
 ul {
   list-style: none;
 }
-
-/* Avoid text overflow issues */
-/* p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-} */
 /* CSS reset end */
-
-/* 
-### Body Copy
-- Font size: 18px (card titles e.g. Work, Play)
-
-### Font
-- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
-- Weights: 300, 400, 500 
-*/
 
 :root {
   /* Primary colors */
@@ -57,14 +43,76 @@ ul {
 }
 
 body {
-  font-size: 18px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.125rem;
+  color: white;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  min-block-size: 100dvb;
+  background-color: var(--clr-navy-950);
+
+  /* TODO -- Need paddings */
+}
+
+p,
+.timeframe__btn {
+  font-weight: (--fw-light);
+  color: var(--clr-navy-200);
+}
+
+.profile__card,
+.category-card,
+.timeframe {
+  border-radius: 1em;
+}
+
+.profile__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+
+  padding: 2.5em;
+  background-color: var(--clr-purple-600);
+}
+
+.profile__img {
+  border: 3px solid white;
+  border-radius: 50%;
+  max-inline-size: 5em;
+}
+
+.profile__name {
+  margin-block-start: 0.25rem;
+  font-weight: var(--fw-light);
+}
+
+.timeframe {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 2.5em;
+  background-color: var(--clr-navy-900);
+}
+
+.timeframe__btn {
+  border: none;
+  font-size: 1.125rem;
+  background-color: inherit;
+}
+
+.btn-active {
+  color: white;
 }
 
 /* Footer */
-.attribution {
+/* .attribution {
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
-}
+} */

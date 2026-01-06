@@ -35,6 +35,7 @@ ul {
   --clr-navy-900: hsl(235, 46%, 20%);
   --clr-purple-500: hsl(235, 45%, 61%);
   --clr-navy-200: hsl(236, 100%, 87%);
+  --clr-white: white;
 
   /* Typography */
   --fw-light: 300;
@@ -45,12 +46,14 @@ ul {
 body {
   font-family: 'Rubik', sans-serif;
   font-size: 1.125rem;
-  color: white;
+  color: var(--clr-white);
 }
 
 main {
   display: grid;
-  place-items: center;
+  gap: 1.75em;
+
+  padding: 6em 2em;
   min-block-size: 100dvb;
   background-color: var(--clr-navy-950);
 
@@ -66,6 +69,7 @@ p,
 .profile__card,
 .category-card,
 .timeframe {
+  padding: 2em;
   border-radius: 1em;
 }
 
@@ -75,7 +79,6 @@ p,
   justify-content: center;
   gap: 1.5em;
 
-  padding: 2.5em;
   background-color: var(--clr-purple-600);
 }
 
@@ -87,6 +90,7 @@ p,
 
 .profile__name {
   margin-block-start: 0.25rem;
+  font-size: 1.75rem;
   font-weight: var(--fw-light);
 }
 
@@ -105,7 +109,36 @@ p,
 }
 
 .btn-active {
-  color: white;
+  color: var(--clr-white);
+}
+
+.category-card {
+  background-color: var(--clr-navy-900);
+}
+
+.category-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-card__title {
+  font-size: 1.5rem;
+  font-weight: var(--fw-bold);
+}
+
+.category-card__hrs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-block-start: 0.5em;
+}
+
+.category-card__curr {
+  font-size: 2.5rem;
+  font-weight: var(--fw-light);
+  color: var(--clr-white);
 }
 
 /* Footer */

@@ -113,9 +113,48 @@ p,
 }
 
 .category-card {
+  display: grid;
+  grid-template-rows: 2.5em auto;
+  grid-template-columns: 1fr;
+}
+
+.category-card__decorator {
+  grid-row: 1 / -1;
+  grid-column: 1;
+
+  border-radius: 1em;
+  background-color: var(--clr-white);
+}
+
+.category-card__decorator--work {
+  background-color: var(--clr-work);
+}
+
+.category-card__decorator--play {
+  background-color: var(--clr-play);
+}
+
+.category-card__decorator--study {
+  background-color: var(--clr-study);
+}
+
+.category-card__decorator--exercise {
+  background-color: var(--clr-exercise);
+}
+
+.category-card__decorator--social {
+  background-color: var(--clr-social);
+}
+
+.category-card__decorator--self-care {
+  background-color: var(--clr-selfcare);
 }
 
 .category-card__content {
+  grid-row: 2;
+  grid-column: 1;
+  align-self: end;
+
   background-color: var(--clr-navy-900);
 }
 

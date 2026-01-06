@@ -67,7 +67,7 @@ p,
 }
 
 .profile__card,
-.category-card,
+.category-card__content,
 .timeframe {
   padding: 2em;
   border-radius: 1em;
@@ -113,6 +113,9 @@ p,
 }
 
 .category-card {
+}
+
+.category-card__content {
   background-color: var(--clr-navy-900);
 }
 

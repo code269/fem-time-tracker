@@ -72,17 +72,24 @@ p,
 }
 
 .profile__card,
-.category-card__content,
-.timeframe {
+.category-card__content {
   padding: 2em;
   border-radius: 1em;
 }
 
 .profile {
   display: grid;
+
+  grid-template-rows: repeat(2, auto);
+  background-color: var(--clr-navy-900);
+
+  border-radius: 1em;
 }
 
 .profile__card {
+  grid-row: 1 / 2;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,11 +111,13 @@ p,
 }
 
 .timeframe {
+  grid-row: 2;
+  z-index: 1;
+
   display: flex;
   justify-content: space-around;
 
-  padding: 2.5em;
-  background-color: var(--clr-navy-900);
+  padding-block: 1.75em;
 }
 
 .timeframe__btn {

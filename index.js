@@ -21,10 +21,15 @@ fetchData();
 const buttons = document.querySelectorAll('.timeframe__btn');
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    const timeframe = button.textContent.toLowerCase();
-    updateData(timeframe);
+    const timeframe = button.textContent.toLowerCase().trim();
 
-    // Do something to styling (e.g: highlight, bold, etc) [Can be done after styling]
+    if (timeframe !== selectedTimeframe) {
+      buttons.forEach((btn) => btn.classList.remove('timeframe__btn--active'));
+      button.classList.add('timeframe__btn--active');
+
+      selectedTimeframe = timeframe;
+      updateData(timeframe);
+    }
   });
 });
 
@@ -41,15 +46,12 @@ function writeText(input, prevTerm) {
 }
 
 function updateData(timeframe) {
-  if (timeframe !== selectedTimeframe) {
-    selectedTimeframe = timeframe;
-    console.log('Updating data...');
+  console.log('Updating data...');
 
-    if (timeframe === 'daily') writeText('daily', 'Yesterday');
-    else if (timeframe === 'weekly') writeText('weekly', 'Last Week');
-    else if (timeframe == 'monthly') writeText('monthly', 'Last Month');
-    else console.log('Error: timeframe not recognized');
-  }
+  if (timeframe === 'daily') writeText('daily', 'Yesterday');
+  else if (timeframe === 'weekly') writeText('weekly', 'Last Week');
+  else if (timeframe == 'monthly') writeText('monthly', 'Last Month');
+  else console.log(`Error: Timeframe: '${timeframe}' not recognized`);
 }
 
 // Want to improve functions

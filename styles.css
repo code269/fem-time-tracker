@@ -58,7 +58,6 @@ main {
   gap: 1.75em;
 
   padding: 6em 2em;
-  min-block-size: 100dvb;
   inline-size: 100%;
   max-inline-size: 36em;
 
@@ -126,7 +125,7 @@ p,
   background-color: inherit;
 }
 
-.btn-active {
+.timeframe__btn--active {
   color: var(--clr-white);
 }
 

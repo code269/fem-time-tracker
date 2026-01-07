@@ -155,10 +155,16 @@ p,
   border: none;
   font-size: 1.125rem;
   background-color: inherit;
+  transition: 200ms;
 
   @media (min-width: 64em) {
     font-size: 1rem;
   }
+}
+
+.timeframe__btn:hover {
+  color: var(--clr-white);
+  cursor: pointer;
 }
 
 .timeframe__btn--active {

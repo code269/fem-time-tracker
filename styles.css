@@ -47,6 +47,7 @@ body {
   display: grid;
   place-items: center;
 
+  block-size: 100dvb;
   font-family: 'Rubik', sans-serif;
   font-size: 1.125rem;
   color: var(--clr-white);
@@ -61,7 +62,16 @@ main {
   inline-size: 100%;
   max-inline-size: 36em;
 
-  /* TODO -- Need paddings */
+  @media (min-width: 64em) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'profile work play study'
+      'profile exercise social selfcare';
+
+    padding-inline: 2.5em;
+    max-inline-size: 68em;
+  }
 }
 
 p,
@@ -83,6 +93,11 @@ p,
   background-color: var(--clr-navy-900);
 
   border-radius: 1em;
+
+  /* Not sure if it's ok to just use this one area assignment */
+  @media (min-width: 64em) {
+    grid-area: profile;
+  }
 }
 
 .profile__card {
@@ -95,6 +110,12 @@ p,
   gap: 1.5em;
 
   background-color: var(--clr-purple-600);
+
+  @media (min-width: 64em) {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
 }
 
 .profile__img {
@@ -107,6 +128,10 @@ p,
   margin-block-start: 0.25rem;
   font-size: 1.75rem;
   font-weight: var(--fw-light);
+
+  @media (min-width: 64em) {
+    font-size: 2rem;
+  }
 }
 
 .timeframe {
@@ -116,13 +141,24 @@ p,
   display: flex;
   justify-content: space-around;
 
-  padding-block: 1.75em;
+  padding: 1.75em;
+
+  @media (min-width: 64em) {
+    flex-direction: column;
+    justify-content: none;
+
+    padding: 0.75em 2em;
+  }
 }
 
 .timeframe__btn {
   border: none;
   font-size: 1.125rem;
   background-color: inherit;
+
+  @media (min-width: 64em) {
+    font-size: 1rem;
+  }
 }
 
 .timeframe__btn--active {
@@ -191,6 +227,10 @@ p,
 .category-card__title {
   font-size: 1.5rem;
   font-weight: var(--fw-bold);
+
+  @media (min-width: 64em) {
+    font-size: 1rem;
+  }
 }
 
 .category-card__hrs {
@@ -199,12 +239,27 @@ p,
   align-items: center;
 
   margin-block-start: 0.5em;
+
+  @media (min-width: 64em) {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5em;
+
+    margin-top: 1.5em;
+  }
 }
 
 .category-card__curr {
   font-size: 2.5rem;
   font-weight: var(--fw-light);
   color: var(--clr-white);
+}
+
+p,
+.category-card__prev {
+  @media (min-width: 64em) {
+    font-size: 0.9rem;
+  }
 }
 
 /* Footer */

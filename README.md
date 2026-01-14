@@ -26,11 +26,11 @@ Users should be able to:
 
 ## **Mobile**:
 
-![Mobile Screenshot](./assets/screenshots/mobile-screenshot.png)
+![Mobile Screenshot](./images/screenshots/mobile-screenshot.png)
 
 ## **Desktop**:
 
-![Desktop Screenshot](./assets/screenshots/desktop-screenshot.png)
+![Desktop Screenshot](./images/screenshots/desktop-screenshot.png)
 
 ### Links
 

@@ -11,7 +11,6 @@ async function fetchData() {
     const data = await response.json();
 
     cache = data;
-    console.log('Success! Here is your data: ', data);
   } catch (error) {
     console.error('Error loading JSON: ', error);
   }
@@ -46,8 +45,6 @@ function writeText(input, prevTerm) {
 }
 
 function updateData(timeframe) {
-  console.log('Updating data...');
-
   if (timeframe === 'daily') writeText('daily', 'Yesterday');
   else if (timeframe === 'weekly') writeText('weekly', 'Last Week');
   else if (timeframe == 'monthly') writeText('monthly', 'Last Month');

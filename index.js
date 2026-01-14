@@ -1,7 +1,6 @@
 // Default value
 let selectedTimeframe = 'weekly';
 
-// Cached JSON data
 let cache;
 
 async function fetchData() {
@@ -50,5 +49,3 @@ function updateData(timeframe) {
   else if (timeframe == 'monthly') writeText('monthly', 'Last Month');
   else console.log(`Error: Timeframe: '${timeframe}' not recognized`);
 }
-
-// Want to improve functions

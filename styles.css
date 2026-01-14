@@ -76,7 +76,7 @@ main {
 
 p,
 .timeframe__btn {
-  font-weight: (--fw-light);
+  font-weight: var(--fw-light);
   color: var(--clr-navy-200);
 }
 
